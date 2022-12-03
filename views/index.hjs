@@ -14,7 +14,11 @@
       <nav class="navbar navbar-inverse" style="padding-left:130px;">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/">Home</a></li>
+            <li><a href="/courses">Courses</a></li>
             <li><a href="/users">Users</a></li>
+            <li><a href="/users/add">Add Users</a></li>
+            <li><a href="/enrollment">Enrollment</a></li>
+            <li><a href="/invalid">Invalid Path</a></li>
           </ul>
       </nav>
     </div>
@@ -22,18 +26,13 @@
     <div class="center">
       <h1>{{ title }}</h1>
       <p>{{ name }}</p>
-      <p>Submission Deadline:<mark>October 13th 11:59pm</mark>.</p>
     </div>
     <div style="padding-left: 30px">
         <br/><br/>
-        <p>The purpose of this assignment is to further explore the web architecture evolution discussed in lecture that kicked off the single page app phenomenon.</p>
-        <p>And while this app is not truly single page, the concept we aim to cover is nevertheless all the same.</p>
-        <p>We make a call to the server, get a bare-bones HTML response for speed-up, and then fire-off ajax calls to populate the remaining content.</p>
+        <p>The purpose of this lecture is to introduce you to building user interfaces that communicate with a backend server.</p>
+        <p>In this practical example, you will learn how to render an HTML page with dynamic data from the server.</p>
+        <p>In addition, we will look at how to ask for user input to send to the backend server so it can be saved in our database.</p>
         <br/>
-        <In><ins>Deliverable:</ins> The users view needs some work. The expected behavior is when a client requests <mark>/users</mark> the server should return the predefined users view with its respective HTML. In this view, we have defined bare-bones HTML with an empty table element. In addition, we have integrated jQuery library for DOM manipulation. To invoke jQuery methods we first reference the <mark>$</mark> character. Secondly, you'll notice <mark>$(document).ready(..)</mark> which is basically jQuery making a request to the browser to be notified via callback when all the HTML returned by the server has been rendered, at which the callback function will be called and jQuery can then perform any ajax calls as necessary to populate the remaining content.</p>
-        <p>Your assignment will require making changes to <mark>server.js</mark> and adding code to the ajax success callback function to append the users table with the data returned by the server.</p>
-        <br />
-        <p>The assignment must be completed <u>individually</u>. There is a zero-tolerance policy for cheating and I will catch you. Good Luck and have fun :)</p>   
     </div>
   </body>
 </html>

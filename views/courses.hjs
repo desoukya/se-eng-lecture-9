@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Users</title>
+    <title>Courses</title>
     <link rel='stylesheet' href='/styles/bootstrap.min.css' />
     <link rel='stylesheet' href='/styles/style.css' />
     <script src="/js/jquery-2.2.0.min.js" type="text/javascript"></script>
@@ -13,11 +13,11 @@
     <nav class="navbar navbar-inverse" style="padding-left:130px;">
       <ul class="nav navbar-nav">
         <li><a href="/">Home</a></li>
-        <li><a href="/courses">Courses</a></li>
-        <li class="active"><a href="/users">Users</a></li>
+        <li class="active"><a href="/courses">Courses</a></li>
+        <li><a href="/users">Users</a></li>
         <li><a href="/users/add">Add Users</a></li>
         <li><a href="/enrollment">Enrollment</a></li>
-        <li><a href="/invalid">Invalid Path</a></li>
+        <li><a href="/invalid">Invalid Path</a></li>          
       </ul>
   </nav>
   </div>
@@ -25,21 +25,15 @@
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">id</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Major</th>
-            <th scope="col">Role</th>
+            <th scope="col">name</th>
+            <th scope="col">code</th>
           </tr>
-          {{#users}}
+          {{#courses}}
             <tr>
-              <td>{{id}}</td>
-              <td>{{firstName}}</td>
-              <td>{{lastName}}</td>
-              <td>{{major}}</td>
-              <td>{{roleId}}</td>
+              <td>{{name}}</td>
+              <td>{{code}}</td>
             </tr>
-          {{/users}}
+          {{/courses}}
         </thead>
       </table>
     </div>

@@ -14,9 +14,9 @@
       <ul class="nav navbar-nav">
         <li><a href="/">Home</a></li>
         <li><a href="/courses">Courses</a></li>
-        <li class="active"><a href="/users">Users</a></li>
+        <li><a href="/users">Users</a></li>
         <li><a href="/users/add">Add Users</a></li>
-        <li><a href="/enrollment">Enrollment</a></li>
+        <li class="active"><a href="/enrollment">Enrollment</a></li>
         <li><a href="/invalid">Invalid Path</a></li>
       </ul>
   </nav>
@@ -25,21 +25,23 @@
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">id</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
+            <th scope="col">Course Code</th>
+            <th scope="col">Course Name</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
             <th scope="col">Major</th>
-            <th scope="col">Role</th>
+            <th scope="col">Grade</th>
           </tr>
-          {{#users}}
+          {{#enrollment}}
             <tr>
-              <td>{{id}}</td>
+              <td>{{code}}</td>
+              <td>{{name}}</td>
               <td>{{firstName}}</td>
               <td>{{lastName}}</td>
               <td>{{major}}</td>
-              <td>{{roleId}}</td>
+              <td>{{grade}}</td>
             </tr>
-          {{/users}}
+          {{/enrollment}}
         </thead>
       </table>
     </div>
