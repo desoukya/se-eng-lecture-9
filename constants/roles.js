@@ -1,5 +1,4 @@
 module.exports = {
-  admin: 1,
-  student: 2,
-  professor: 3,
+  student: 1,
+  admin: 2,
 };
