@@ -24,10 +24,10 @@
         $.ajax({
           type: "POST",
           url: '/api/v1/users',
-          data: data,
-          success: function(data){
-            if(data) {
-              alert(JSON.stringify(data));
+          data,
+          success: function(serverResponse){
+            if(serverResponse) {
+              alert(JSON.stringify(serverResponse));
             }
           }
         });

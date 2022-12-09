@@ -1,6 +1,6 @@
 const db = require('../db');
 
-module.exports = (app) => {
+module.exports = function(app) {
   // Register HTTP endpoint to render /index page
   app.get('/', (req, res) => {
     // res.render tells the server to return
@@ -9,7 +9,7 @@ module.exports = (app) => {
     // @param2 data (in this case JSON) passed to view for injection
     return res.render('index', {
       title: "Software Engineering",
-      name: "Dr. Amr Desouky - Lecture 8 - Designing UI"
+      name: "Dr. Amr Desouky - Lecture 8 - Building UI"
     });
   });
 
@@ -18,6 +18,7 @@ module.exports = (app) => {
     const users = await db.select('*').from('users');
     return res.render('users', { users });
   });
+
   // Register HTTP endpoint to render /courses page
   app.get('/courses', async (req, res) => {
     const courses = await db.select('*').from('courses');
@@ -31,6 +32,7 @@ module.exports = (app) => {
     .innerJoin('users', 'enrollment.userId', 'users.id')
     .innerJoin('courses', 'enrollment.courseId', 'courses.id');
 
+    console.log('enrollment', enrollment)
     return res.render('enrollment', { enrollment });
   });
   // Register HTTP endpoint to render /users/add page

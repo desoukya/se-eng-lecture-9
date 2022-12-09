@@ -19,7 +19,7 @@ apiRoutes(app);
 
 // If request doesn't match any of the above routes then render the 404 page
 app.use((req, res, next) => {
-  res.status(404).render('404');
+  return res.status(404).render('404');
 });
 
 // Create HTTP Server and Listen for Requests
