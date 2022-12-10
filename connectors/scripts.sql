@@ -1,7 +1,9 @@
 -- DROP TABLE IF EXISTS se_project.users;
--- DROP TABLE IF EXISTS se_project.roles;
--- DROP TABLE IF EXISTS se_project.faculties;
--- DROP TABLE IF EXISTS se_project.sessions;
+-- DROP TABLE IF EXISTS roles;
+-- DROP TABLE IF EXISTS faculties;
+-- DROP TABLE IF EXISTS courses;
+-- DROP TABLE IF EXISTS sessions;
+-- DROP TABLE IF EXISTS enrollments;
 
 CREATE TABLE IF NOT EXISTS se_project.users
 (
@@ -34,7 +36,7 @@ CREATE TABLE IF NOT EXISTS se_project.sessions
     id SERIAL NOT NULL,
     "userId" integer NOT NULL,
     "token" text NOT NULL,
-    "expiration" timestamp NOT NULL,
+    "expiresAt" timestamp NOT NULL,
     CONSTRAINT sessions_pkey PRIMARY KEY (id)
 )
 

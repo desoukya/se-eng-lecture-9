@@ -1,16 +1,10 @@
 const { v4 } = require('uuid');
 const db = require('../connectors/db');
 const roles = require('../constants/roles');
+const { getSessionToken } = require('../utils/session');
 
 module.exports = async function(req, res, next) {
-  // if this request doesn't have any cookies, that means it isn't
-  // authenticated. Return an error code.
-  if (!req.headers.cookie) {
-    return res.status(301).redirect('/');
-  }
-
-  // We can obtain the session token from the requests cookies, which come with every request
-  const sessionToken = req.headers.cookie.slice('session_token='.length);
+  const sessionToken = getSessionToken(req);
   if (!sessionToken) {
     return res.status(301).redirect('/');
   }

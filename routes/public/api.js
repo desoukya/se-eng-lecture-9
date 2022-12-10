@@ -21,7 +21,7 @@ module.exports = function(app) {
       roleId: roles.student,
     };
     try {
-      const user = await db('se_project.users').insert(newUser).returning('*').first();
+      const user = await db('se_project.users').insert(newUser).returning('*');
       return res.status(200).json(user);
     } catch (e) {
       console.log(e.message);
@@ -63,7 +63,7 @@ module.exports = function(app) {
       userId: user.id,
       token,
       expiresAt,
-    }
+    };
     try {
       await db('se_project.sessions').insert(session);
       // In the response, set a cookie on the client with the name "session_cookie"
