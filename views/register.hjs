@@ -13,21 +13,24 @@
     $(document).ready(function(){
       // Handle Autocomplete Selection Change
       $(".dropdown-menu li a").click(function(){
-        $("#ddFaculties").text($(this).text());
-        $("#ddFaculties").val($(this).text());
+        const index = $(this).attr('index');
+        $("#facultyDropdown").attr('index', index);
+        $("#facultyDropdown").text($(this).text());
       });
       // Handle Registration Button Click
       $("#register").click(function() {
         const firstName = $('#firstName').val();
         const lastName = $('#lastName').val();
         const email = $('#email').val();
-        const faculty = $("#ddFaculties").text($(this).text());
-        console.log('faculty', faculty)
+        const password = $('#password').val();
+        const facultyId = $("#facultyDropdown").attr('index');
 
         const data = {
           firstName,
           lastName,
-          faculty
+          email,
+          password,
+          facultyId,
         };
 
         $.ajax({
@@ -36,12 +39,13 @@
           data,
           success: function(serverResponse) {
             if(serverResponse) {
-              alert(JSON.stringify(serverResponse));
+              alert('Successfully Registered User');
+              location.href = '/';
             }
           },
           error: function(errorResponse) {
             if(errorResponse) {
-              alert(JSON.stringify(errorResponse));
+              alert(`Error Register User: ${errorResponse.responseText}`);
             }            
           }
         });
@@ -80,16 +84,22 @@
           </div>
       </div>
       <div class="form-group">
+          <label for="password" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-10">
+              <input type="password" class="form-control" id="password" name="password" placeholder="password" value="">
+          </div>
+      </div>
+      <div class="form-group">
           <label for="faculty" class="col-sm-2 control-label">Faculty</label>
           <div class="col-sm-10">
             <div class="btn-group">
-              <button id='ddFaculties' class="btn">Faculties</button>
+              <button index=0 id='facultyDropdown' class="btn">Faculties</button>
               <button class="btn dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu">
                   {{#faculties}}
-                     <li><a href="#">{{name}}</a></li>
+                     <li><a index="{{id}}">{{name}}</a></li>
                   {{/faculties}}              
               </ul>
             </div>

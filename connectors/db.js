@@ -12,7 +12,6 @@ const config = {
     user: 'postgres',
     password: 'postgres',
     database: 'postgres',
-    pool: { min: 0, max: 10}
   }
 };
 

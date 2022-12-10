@@ -12,27 +12,33 @@
     <div>
     <nav class="navbar navbar-inverse" style="padding-left:130px;">
       <ul class="nav navbar-nav">
-        <li><a href="/">Home</a></li>
+        <li><a href="/dashboard">Home</a></li>
         <li class="active"><a href="/courses">Courses</a></li>
         <li><a href="/users">Users</a></li>
         <li><a href="/users/add">Add Users</a></li>
         <li><a href="/enrollment">Enrollment</a></li>
-        <li><a href="/invalid">Invalid Path</a></li>          
+        <li><a href="/">Logout</a></li>       
       </ul>
   </nav>
   </div>
     <br/>
+      {{#isAdmin}}
+      <div style="position:absolute; right:0;">
+        <input id="btnAddCourse" type="button" value="Add Course" class="btn btn-primary">
+        <br />
+      </div>
+      {{/isAdmin}}
       <table class="table">
         <thead>
           <tr>
             <th scope="col">id</th>
-            <th scope="col">name</th>
+            <th scope="col">course</th>
             <th scope="col">code</th>
           </tr>
           {{#courses}}
             <tr>
               <td>{{id}}</td>
-              <td>{{name}}</td>
+              <td>{{course}}</td>
               <td>{{code}}</td>
             </tr>
           {{/courses}}

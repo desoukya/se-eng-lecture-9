@@ -1,5 +1,5 @@
 const { v4 } = require('uuid');
-const db = require('../../db');
+const db = require('../../connectors/db');
 const roles = require('../../constants/roles');
 
 module.exports = function(app) {
