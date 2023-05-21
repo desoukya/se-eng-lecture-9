@@ -16,7 +16,6 @@ const getUser = async function(req) {
     .innerJoin('se_project.faculties', 'se_project.users.facultyId', 'se_project.faculties.id')
     .first();
   
-  console.log('user =>', user)
   user.isStudent = user.roleId === roles.student;
   user.isAdmin = user.roleId === roles.admin;
 
@@ -24,7 +23,7 @@ const getUser = async function(req) {
 }
 
 module.exports = function(app) {
-  // Register HTTP endpoint to render /users page
+  // Register HTTP endpoint to render /dashboard page
   app.get('/dashboard', async function(req, res) {
     const user = await getUser(req);
     return res.render('dashboard', user);

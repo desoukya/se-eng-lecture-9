@@ -29,7 +29,7 @@ module.exports = function(app) {
     }
   });
 
-  // Register HTTP endpoint to create new user
+  // Register HTTP endpoint to login existing user
   app.post('/api/v1/user/login', async function(req, res) {
     // get users credentials from the JSON body
     const email = req.body.email;
